@@ -36,12 +36,7 @@ return {
         -- set a vim motion to close the debugging ui
         vim.keymap.set("n", "<leader>dc", dapui.close, {desc = "[D]ebug [C]lose"})
 
-        -- Java Debug Adapter Configuration
-        dap.adapters.java = {
-          type = 'server',
-          host = 'localhost',
-          port = 5005,  -- default debug port for java
-        }
+
 
         dap.configurations.java = {
           {
