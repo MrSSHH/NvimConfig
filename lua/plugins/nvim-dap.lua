@@ -31,7 +31,13 @@ return {
         vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, { desc = "[D]ebug [T]oggle Breakpoint" })
 
         -- set a vim motion for <Space> + d + s to start the debugger and launch the debugging ui
-        vim.keymap.set("n", "<leader>ds", dap.continue, { desc = "[D]ebug [S]tart" })
+        vim.keymap.set("n", "<leader>ds", function ()
+            vim.api.nvim_command(":normal!:<leader>jc<CR>")
+            dap.continue()
+
+
+        end, { desc = "[D]ebug [S]tart" })
+
 
         -- set a vim motion to close the debugging ui
         vim.keymap.set("n", "<leader>dc", dapui.close, {desc = "[D]ebug [C]lose"})
@@ -42,12 +48,11 @@ return {
           {
             type = 'java',
             request = 'launch',
-            name = 'Launch Java Program',
-            mainClass = './Output\\ Files/${file}',  -- The main class to run
+            name = 'Launch Current Java Program ',
             projectName = '${workspaceFolder}',
           }
         }
 
         end
 
-    }
+}
