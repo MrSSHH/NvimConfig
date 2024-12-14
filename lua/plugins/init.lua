@@ -9,18 +9,5 @@ return {
             config = function()
                 require "configs.lspconfig"
             end,
-        },
-        {
-            'vyfor/cord.nvim',
-            run = './build || .\\build',
-            config = function()
-                require('cord').setup()
-            end,
-        },
-        {
-            "Pocco81/auto-save.nvim",
-            config = function()
-                require("auto-save").setup {}
-            end,
-        },
+        }
 }
